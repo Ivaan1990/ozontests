@@ -5,7 +5,6 @@ import cucumber.api.java.Before;
 import org.openqa.selenium.WebDriver;
 import util.DriverManager;
 import util.TestProperties;
-
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -23,6 +22,6 @@ public class BaseSteps {
 
     @After
     public void afterScenario(){
-        //DriverManager.quitDriver();
+        DriverManager.quitDriver();
     }
 }

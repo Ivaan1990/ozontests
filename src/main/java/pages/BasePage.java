@@ -8,25 +8,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.DriverManager;
-
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public abstract class BasePage {
-    WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 60);
 
     public BasePage(){
         PageFactory.initElements(DriverManager.getDriver(), this);
-    }
-
-    public void selectMenuItem(List<WebElement> items, String itemName){
-        for(WebElement element : items){
-            if (element.getText().equalsIgnoreCase(itemName)){
-                element.click();
-                return;
-            }
-        }
-        Assert.fail("Не найден элемент коллекции " + itemName);
     }
 
     public void clickOnElement(WebElement element) {
@@ -42,7 +30,7 @@ public abstract class BasePage {
     }
 
     public void waitPageLoader(){
-        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 30);
+        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 15);
         wait.ignoring(NoSuchElementException.class).until((ExpectedCondition<Boolean>) driver ->
                 !isPresent(By.xpath("//*[@class='modal-container']")));
     }
@@ -64,11 +52,4 @@ public abstract class BasePage {
         element.sendKeys(value);
     }
 
-    public void delay(int seconds){
-        try {
-            Thread.sleep(seconds * 1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
 }

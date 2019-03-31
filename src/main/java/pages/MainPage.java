@@ -25,4 +25,14 @@ public class MainPage extends BasePage {
 
     @FindBy(xpath = "//*[@class='empty-cart-btn button blue large']")
     public WebElement submit;
+
+    @FindBy(xpath = "//*[@data-test-id='header-my-ozon-icon']")
+    public WebElement userButton;
+
+    @FindBy(xpath = "//span[@data-test-id='header-my-ozon-logout']")
+    public WebElement logoutButton;
+
+    @FindBy(xpath = "//*[@class='cart-title']")
+    public WebElement emptyCart;
+
 }

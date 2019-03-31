@@ -14,11 +14,13 @@ public class BuySteps {
         buyPage.clickOnElement(buyPage.enterTheButtonSearch);
     }
 
-    @Then("добавляем 5 товаров в корзину")
-    public void addToCard(){
+    @Then("добавляем \"(.*)\" товаров в корзину")
+    public void addToCard(int value){
+        //buyPage.waitPageLoader();
         buyPage.scrollPage("//span[contains(text(), 'Бестселлеры')]");
-        for(int i = 0; i < 5; i++){
-            buyPage.clickOnElement(buyPage.buttonsAdd.get(i));
+        for(int i = 0; i < value; i++){
+            //buyPage.clickOnElement(buyPage.buttonsAdd.get(i));
+            buyPage.buttonsAdd.get(i).click();
         }
     }
 
