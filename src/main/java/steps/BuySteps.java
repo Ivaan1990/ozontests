@@ -16,10 +16,8 @@ public class BuySteps {
 
     @Then("добавляем \"(.*)\" товаров в корзину")
     public void addToCard(int value){
-        //buyPage.waitPageLoader();
         buyPage.scrollPage("//span[contains(text(), 'Бестселлеры')]");
         for(int i = 0; i < value; i++){
-            //buyPage.clickOnElement(buyPage.buttonsAdd.get(i));
             buyPage.buttonsAdd.get(i).click();
         }
     }

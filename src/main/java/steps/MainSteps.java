@@ -35,9 +35,9 @@ public class MainSteps {
     @When("разлогиниваемся из сервиса")
     public void logOut(){
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 15);
+        mainPage.clickOnElement(mainPage.userButton);
         wait.ignoring(NoSuchElementException.class).until((ExpectedCondition<Boolean>) driver ->
                 !isPresent(By.xpath("//*[@class='modal-wrapper']")));
-        mainPage.clickOnElement(mainPage.userButton);
         mainPage.clickOnElement(mainPage.logoutButton);
     }
 
